@@ -15,7 +15,7 @@
   </head>
   <body onload="initialize()">
     <div class="row">
-      <h1><center>The Silly Twitter Thing</center></h1>
+      <h1><center>Twitter Origin Guesser</center></h1>
       <h4>At {{ tweet["created_at"] }} GMT, user {{ tweet["user"] }}said: </h4>
       <h3> {{ tweet["text"] }} <br> </h3>
       <button onclick="compute()" id="submit">Submit guess</button>
@@ -32,6 +32,11 @@
       var score;
       var HIGH = 0.0;
       function initialize() {
+        if (!window.location.hash) {
+          localStorage.clear();
+          window.location = window.location + "#loaded";
+          window.location.reload();
+        }
         HIGH = localStorage.getItem("HIGH");
         var mapOptions = {
           center: new google.maps.LatLng(39.83, -98.58),

@@ -11,7 +11,7 @@ def get_tweet():
         for i in range(len(statuses)):
             try:
                 tweet = { "user": statuses[i]["user"]["screen_name"],
-                          "created_at": statuses[i]["created_at"][0:,
+                          "created_at": statuses[i]["created_at"],
                           "coordinates": statuses[i]["coordinates"]["coordinates"],
                           "text": statuses[i]["text"]
                         }
